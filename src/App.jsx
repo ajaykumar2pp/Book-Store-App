@@ -9,7 +9,6 @@ import ShoppingCartPage from "./pages/ShoppingCartPage"
 import PageNotFound from "./pages/PageNotFound"
 
 import OrderBook from './pages/OrderBook';
-import Footer from './components/Footer';
 import './App.css'
 
 
@@ -31,7 +30,6 @@ function App() {
           <Route path='*' element={<PageNotFound />} />
         </Routes>
     
-        <Footer />
       </BrowserRouter>
 
     </>

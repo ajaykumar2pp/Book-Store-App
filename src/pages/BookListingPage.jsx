@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions/cartActions";
+import { addToCart ,removeFromCart} from "../redux/actions/cartActions";
+import  Footer from '../components/Footer'
 
 const booksData = [
   {
@@ -91,7 +92,9 @@ const BookListingPage = () => {
   const handleAddToCart = (book) => {
     dispatch(addToCart(book));
   };
-
+  const handleRemoveFromCart = (book) => {
+    dispatch(removeFromCart(book));
+  };
   return (
     <div>
       <h3 className="text-3xl font-bold dark:text-white text-center mt-3">
@@ -138,11 +141,19 @@ const BookListingPage = () => {
                 className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
               >
                 Add to Cart
+              </button><br />
+              <button
+                onClick={() => handleRemoveFromCart(book.id)}
+                className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              >
+                Remove Cart
               </button>
             </div>
           </div>
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

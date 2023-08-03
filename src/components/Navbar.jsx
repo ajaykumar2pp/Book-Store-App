@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
    
-  const items = useSelector((state)=>state.cart.cartItems)
-
+  const prodcutData = useSelector((state)=>state.cart.cartItems)
+  console.log("Store data", prodcutData)
   const NavLinkCss = ({ isActive }) => {
     return {
       fontSize: isActive ? "18px" : "18px",
@@ -40,7 +40,7 @@ const Navbar = () => {
               </li>
              
               <li className="mr-2">
-                <NavLink to="/checkout" style={NavLinkCss} className="inline-block border-b-2 p-3 border-transparent rounded-t-lg hover:border-gray-300 ">Checkout: {items.length}</NavLink>
+                <NavLink to="/checkout" style={NavLinkCss} className="inline-block border-b-2 p-3 border-transparent rounded-t-lg hover:border-gray-300 ">Checkout: {prodcutData.length}</NavLink>
               </li>
               
                <li className="mr-2">
